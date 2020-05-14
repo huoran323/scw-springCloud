@@ -16,16 +16,8 @@
 	</resultMap>
 
 	<insert id="insertSelective" parameterType="com.hr.scw.user.bean.TMember">
-		insert into t_member (id, loginacct,
-		userpswd, username, email, authstatus,
-		usertype, realname, cardnum,
-		accttype)
-		values (#{id}, #{loginacct},
-		#{userpswd},
-		#{username}, #{email}, #{authstatus},
-		#{usertype}, #{realname},
-		#{cardnum},
-		#{accttype})
+		insert into t_member (id, loginacct,userpswd, username, email, authstatus,usertype, realname, cardnum,accttype)
+		values (#{id}, #{loginacct},#{userpswd}, #{username}, #{email}, #{authstatus},#{usertype}, #{realname},#{cardnum},#{accttype})
 	</insert>
 	
 </mapper>
