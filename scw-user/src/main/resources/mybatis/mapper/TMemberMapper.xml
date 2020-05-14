@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hr.scw.user.mapper.TMemberMapper">
+
+	<resultMap id="BaseResultMap" type="com.hr.scw.user.bean.TMember">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="loginacct" jdbcType="VARCHAR" property="loginacct" />
+		<result column="userpswd" jdbcType="CHAR" property="userpswd" />
+		<result column="username" jdbcType="VARCHAR" property="username" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="authstatus" jdbcType="CHAR" property="authstatus" />
+		<result column="usertype" jdbcType="CHAR" property="usertype" />
+		<result column="realname" jdbcType="VARCHAR" property="realname" />
+		<result column="cardnum" jdbcType="VARCHAR" property="cardnum" />
+		<result column="accttype" jdbcType="CHAR" property="accttype" />
+	</resultMap>
+
+	<insert id="insertSelective" parameterType="com.hr.scw.user.bean.TMember">
+		insert into t_member (id, loginacct,
+		userpswd, username, email, authstatus,
+		usertype, realname, cardnum,
+		accttype)
+		values (#{id}, #{loginacct},
+		#{userpswd},
+		#{username}, #{email}, #{authstatus},
+		#{usertype}, #{realname},
+		#{cardnum},
+		#{accttype})
+	</insert>
+	
+</mapper>
