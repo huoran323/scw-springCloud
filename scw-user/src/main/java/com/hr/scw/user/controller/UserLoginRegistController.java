@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hr.scw.user.service.TMemberService;
 import com.hr.scw.user.vo.req.UserRegistVo;
+import com.hr.scw.user.vo.resp.UserRespVo;
 import com.hr.scw.vo.resp.AppResponse;
 
 import io.swagger.annotations.Api;
@@ -43,7 +44,23 @@ public class UserLoginRegistController {
 			resp.setMsg("用户名称不能为空！");
 			return resp;
 		}
+	}
+	
+	@ResponseBody
+	@ApiOperation(value="用户登录")
+	@PostMapping("/login")
+	public AppResponse<UserRespVo> login(String loginacct, String userpswd) {
 		
-		
+		try {
+			UserRespVo vo = memberService.getUserByLogin(loginacct, userpswd);
+			
+			return AppResponse.ok(vo);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			AppResponse resp = AppResponse.fail(null);
+			resp.setMsg(e.getMessage());
+			return resp;
+		}
 	}
 }

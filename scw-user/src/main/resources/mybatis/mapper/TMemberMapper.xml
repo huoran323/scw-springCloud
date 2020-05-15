@@ -20,4 +20,9 @@
 		values (#{id}, #{loginacct},#{userpswd}, #{username}, #{email}, #{authstatus},#{usertype}, #{realname},#{cardnum},#{accttype})
 	</insert>
 	
+	<!-- List<TMember> selectUser(); -->
+	<select id="selectUser" resultMap="BaseResultMap">
+		select * from t_member t where t.loginacct = #{loginacct}  and t.userpswd = #{userpswd}
+	</select>
+	
 </mapper>
